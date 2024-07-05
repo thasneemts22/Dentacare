@@ -1,0 +1,71 @@
+
+
+
+
+
+{% extends "admin/base.html" %}
+{% load static %}
+{% block content %} 
+
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+
+
+<div class="promo py-5 bg-primary">
+    <div class="container text-center">
+      <div  class="mt-0"></div>
+    </div>
+  </div>
+
+<div class="site-section site-block-appointment">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 mb-5 pl-lg-5 order-1 order-lg-2">
+          <div class="pl-lg-5 ml-lg-5">
+            <h2 class="site-heading text-black">Assign<strong>Time</strong></h2>
+            {% comment %} <p class="lead text-black">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum vitae possimus sapiente temporibus, cum error.</p> {% endcomment %}
+            {% comment %} <p class="text-black-opacity-5">Temporibus adipisci modi nisi, in deserunt. Nam, veritatis pariatur fugit explicabo? Nemo eius, eaque saepe facilis quidem nisi. Officiis doloremque dolorum optio.</p> {% endcomment %}
+          </div>
+        </div>
+        <div class="col-lg-6 order-2 order-lg-1">
+
+
+          <form action="" method="post" class="p-5 bg-white">
+            {% csrf_token %}
+
+          
+
+          
+
+            <div class="row form-group">
+              <div class="col-md-12">
+                <label class="font-weight-bold" for="treatment">Select Time Period</label> 
+                <select name="time_period" id="treatment" class="form-control">
+                  <option value="8 am to 10 pm">8 am to 10 am </option>
+                  <option value="10 am to 12 pm">10 am to 12 pm </option>
+                  <option value="2 pm to 4 pm">2 pm to 4 pm</option>
+
+                </select>
+              </div>
+            </div>
+           
+         
+
+            <div class="row form-group">
+              <div class="col-md-12">
+                <input type="submit" value="Assign" class="btn btn-primary">
+              </div>
+            </div>
+
+
+          </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  {% endblock%}

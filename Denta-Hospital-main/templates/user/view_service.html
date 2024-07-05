@@ -1,0 +1,66 @@
+
+
+{% extends "user/base.html" %}
+{% load static %}
+{% block content %} 
+
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+
+<div class="promo py-5 bg-primary">
+  <div class="container text-center">
+    <div  class="mt-0"></div>
+  </div>
+</div>
+
+<div class="page-section">
+    <div class="container">
+      <h1 class="text-center mb-5 wow fadeInUp">Service</h1>
+      {% if messages %}
+      <ul class="messages">
+          {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+      </ul>
+      {% endif %}
+      <table  class="table table-bordered table-striped table-hover" style="background-color: #002633;width: 1000px;">
+        <th class="success" style="color: white;">Service Name</th>
+        <th class="success" style="color: white;">Details</th>
+                              
+
+
+              {% for i in boo %}
+                                <tr style="background-color:white;width: 700px;">
+                                    <td>{{ i.service_name}}</td>
+                                    <td>{{ i.details}}</td>
+                                   
+                                   
+
+
+
+
+
+                                </tr>
+              {% endfor %}
+
+
+
+                            </table>
+    </div>
+  </div>
+
+<br>
+<br>
+<br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br>
+  {% endblock %}

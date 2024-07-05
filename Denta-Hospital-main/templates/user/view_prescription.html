@@ -1,0 +1,68 @@
+
+
+{% extends "user/base.html" %}
+{% load static %}
+{% block content %} 
+
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+
+<div class="promo py-5 bg-primary">
+  <div class="container text-center">
+    <div  class="mt-0"></div>
+  </div>
+</div>
+
+<div class="page-section">
+    <div class="container">
+      <h1 class="text-center mb-5 wow fadeInUp">View Prescription</h1>
+      {% if messages %}
+      <ul class="messages">
+          {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+      </ul>
+      {% endif %}
+      <table  class="table table-bordered table-striped table-hover" style="background-color: #002633;width: 1000px;">
+        <th class="success" style="color: white;">Doctor Name</th>
+        <th class="success" style="color: white;">Date</th>
+        <th class="success" style="color: white;">Prescription</th>
+
+
+
+              {% for i in boo %}
+                                <tr style="background-color:white;width: 700px;">
+                                    <td>{{ i.appointment.doctor.user.first_name}}</td>
+                                    <td>{{ i.appointment.generated_at}}</td>
+                                   
+                                    <td>{{ i.prescription}}</td>
+
+
+
+
+
+
+                                </tr>
+              {% endfor %}
+
+
+
+                            </table>
+    </div>
+  </div>
+
+<br>
+<br>
+<br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br>
+  {% endblock %}

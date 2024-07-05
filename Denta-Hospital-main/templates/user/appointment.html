@@ -1,0 +1,76 @@
+
+
+
+
+
+{% extends "user/base.html" %}
+{% load static %}
+{% block content %} 
+
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+
+
+<div class="promo py-5 bg-primary">
+    <div class="container text-center">
+      <div  class="mt-0"></div>
+    </div>
+  </div>
+
+<div class="site-section site-block-appointment">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 mb-5 pl-lg-5 order-1 order-lg-2">
+          <div class="pl-lg-5 ml-lg-5">
+            <h2 class="site-heading text-black">Online <strong>Appointment</strong> Request Form</h2>
+            {% comment %} <p class="lead text-black">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum vitae possimus sapiente temporibus, cum error.</p> {% endcomment %}
+            {% comment %} <p class="text-black-opacity-5">Temporibus adipisci modi nisi, in deserunt. Nam, veritatis pariatur fugit explicabo? Nemo eius, eaque saepe facilis quidem nisi. Officiis doloremque dolorum optio.</p> {% endcomment %}
+          </div>
+        </div>
+        <div class="col-lg-6 order-2 order-lg-1">
+
+
+          <form action="" method="post" class="p-5 bg-white">
+            {% csrf_token %}
+
+          
+
+          
+
+            <div class="row form-group">
+              <div class="col-md-12">
+                <label class="font-weight-bold" for="treatment">Select Doctor</label> 
+                <select name="doctor" id="treatment" class="form-control" required>
+                    {% for i in  doc %}
+                  <option value="{{i.id}}">{{i.user.first_name}}</option>
+              {% endfor %}
+                </select>
+              </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-12">
+                <label class="font-weight-bold" for="date">Date</label> 
+                <input type="date" name="date" class="form-control" placeholder="Date of visit" required>
+              </div>
+              
+            </div>
+         
+
+            <div class="row form-group">
+              <div class="col-md-12">
+                <input type="submit" value="Send" class="btn btn-primary">
+              </div>
+            </div>
+
+
+          </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  {% endblock%}
